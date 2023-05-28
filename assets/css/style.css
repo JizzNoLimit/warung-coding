@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --font-black: #3a3838;
+}
+
+body, html {
+    font-family: 'Noto Sans', sans-serif !important;
+    color: var(--font-black) !important;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+/* Navbar */
+.navbar {
+    z-index: 100;
+    height: 60px !important;
+    /* border-bottom: 0.2px solid rgb(168, 168, 168) !important; */
+}
+.navbar-brand {
+    font-weight: 700 !important;
+    color: var(--font-black) !important;
+}
+/* Akhir Navbar */
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    align-items: center;
+    width: 220px;
+    height: 100%;
+}
+.sidebar__navigation {
+    width: 100%;
+    height: 80%;
+    background-color: #4da9e6;
+}
+/* Akhir Sidebar */
+
+.main__container {
+    display: grid;
+    grid-template-rows: 320px 140px;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 20px;
+    column-gap: 16px;
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding: 20px 0;
+}
+
+.banner {
+    grid-column: 1/5;
+    width: 100%;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.hallo {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgb(200, 215, 219);
+    background-color: #edf7fd;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.main__produk {
+    position: relative;
+    padding: 20px 0;
+}
+
+.produk__head {
+    margin-bottom: 20px;
+}
+
+.table__produk {
+    width: 100%;
+}
+
+.form__wraper {
+    position: absolute;
+    display: none;
+    justify-content: right;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.form__wraper.active {
+    display: flex;
+}
+
+.form__produk {
+    position: absolute;
+    right: -340px;
+    top: 60px;
+    width: 340px;
+    height: calc(100% - 60px);
+    padding: 20px 14px 20px 14px;
+    background-color: white;
+    z-index: 2;
+    overflow-y: scroll;
+    transition: all .5s ease-out;
+}
+
+.form__produk.active {
+    right: 0;
+}
+
+.form__produk-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form__produk form {
+    margin-bottom: 12px;
+}
