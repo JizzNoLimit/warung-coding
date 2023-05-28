@@ -2,22 +2,22 @@
     <span class="form__wraper"></span>
     <section class="form__produk">
         <div class="form__produk-title">Tambah Produk</div>
-        <form action="">
+        <form action="<?= base_url() . 'produk/tambah' ?>" method="POST">
             <div class="mb-2">
                 <label for="nama" class="form-label">Produk</label>
-                <input type="text" class="form-control" id="nama" placeholder="Nama produk">
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama produk" required>
             </div>
             <div class="mb-2">
                 <label for="harga" class="form-label">Harga</label>
-                <input type="text" class="form-control" id="harga" placeholder="10000">
+                <input type="text" class="form-control" id="harga" name="harga" placeholder="10000" required>
             </div>
             <div class="mb-2">
                 <label for="gambar" class="form-label">Gambar</label>
-                <input type="file" class="form-control" id="gambar" placeholder="Gambar produk">
+                <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Gambar produk">
             </div>
             <div class="mb-2">
                 <label for="kategori" class="form-label">Kategori</label>
-                <select class="form-select" id="kategori" aria-label="Default select example">
+                <select class="form-select" id="kategori" name="kategori" aria-label="Default select example" required>
                     <option selected>Pilih kategori produk</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -26,12 +26,13 @@
             </div>
             <div class="mb-2">
                 <label for="stok" class="form-label">Stok</label>
-                <input type="text" class="form-control" id="stok" placeholder="Jumlah produk">
+                <input type="text" class="form-control" id="stok" name="stok" placeholder="Jumlah produk" required>
             </div>
             <div class="mb-2">
                 <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
                 <input type="date" class="form-control" id="tgl_masuk" placeholder="Tanggal masuk produk">
             </div>
+            <button type="submit" class="btn btn-success btn-full mt-4">Simpan</button>
         </form>
     </section>
     <!-- Navbar -->
@@ -75,23 +76,24 @@
                         <th scope="col">ID</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Harga</th>
-                        <th scope="col">Expired</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">Stok Produk</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-
+                <?php
+                    $no = 1;
+                    foreach ($produks as $produk) : ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $produk->nama ?></td>
+                            <td><?= $produk->harga ?></td>
+                            <td><?= $produk->kategori_id ?></td>
+                            <td><?= $produk->jumlah_barang ?></td>
+                            <td></td>
+                        </tr>
+                <?php endforeach ?>
                 </tbody>
             </table>
         </section>
